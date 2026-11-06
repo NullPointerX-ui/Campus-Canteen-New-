@@ -1,12 +1,9 @@
 # ER Diagram
 
-## Option A (easiest, nicest picture): dbdiagram.io
 
-1. Open https://dbdiagram.io/d in your browser (no login needed to try).
-2. Delete the sample text on the left side.
-3. Copy EVERYTHING inside the box below and paste it on the left side.
-4. The diagram appears on the right. Drag boxes around so lines don't cross.
-5. Click **Export → Export to PNG**. Put that picture in your report.
+
+1. Open https://dbdiagram.io/d in your browser and execute this code.
+
 
 ```
 Table users {
@@ -88,11 +85,3 @@ Table feedback_vectors {
 | orders → order_status_log | 1 : N | Every status change of an order is recorded |
 | food_items → feedback_vectors | 1 : N | A dish has many review vectors |
 | feedback_vectors ↔ MongoDB feedback | 1 : 1 | Linked by mongo_id |
-
-## Option B: Chen-style ER diagram (if your teacher wants ovals and diamonds)
-
-Use https://app.diagrams.net (free). Draw:
-- Rectangles (entities): USER, CATEGORY, FOOD_ITEM, ORDER, PAYMENT
-- Diamonds (relationships): PLACES (User–Order, 1:N), BELONGS_TO (FoodItem–Category, N:1),
-  CONTAINS (Order–FoodItem, M:N, with attributes quantity and unit_price), HAS (Order–Payment, 1:1)
-- Ovals (attributes) around each rectangle; underline the primary key.
